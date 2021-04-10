@@ -1,0 +1,5 @@
+Following are the requirements for this software:
+
+>> python3+
+>> pip install Pillow==8.2.0
+>> pip install image==1.5.33
