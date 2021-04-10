@@ -146,6 +146,7 @@ class Face_Recognition_System:
         btn8_8.place(x=1000, y=525, width=195, height=40)
 
 
+# defining object
 if __name__ == "__main__":
     root = Tk()
     obj = Face_Recognition_System(root)
