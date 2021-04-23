@@ -21,7 +21,7 @@ class Face_Recognition_System:
         f_lbl.place(x=0, y=0, width=450, height=120)
 
         # second image
-        img2 = Image.open("Images/3faces.jpeg")
+        img2 = Image.open("Images/OIP.jpeg")
         img2 = img2.resize((450, 120), Image.ANTIALIAS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
