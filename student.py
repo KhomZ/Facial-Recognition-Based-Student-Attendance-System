@@ -171,15 +171,24 @@ class Student:
         radiobtn1 = ttk.Radiobutton(student_frame, text="Capture Photo Sample", value="Yes")
         radiobtn1.grid(row=6, column=0)
 
-        radiobtn2 = ttk.Radiobutton(student_frame, text="No Photo Sample", value="Yes")
+        radiobtn2 = ttk.Radiobutton(student_frame, text="No Photo Sample", value="No")
         radiobtn2.grid(row=6, column=1)
 
         # ==================================Buttons Frames========================================
         btnFrame = Frame(student_frame, relief=RIDGE, bg="cyan")
         btnFrame.place(x=0, y=180, width=640, height=80)
 
-        save_btn = Button(btnFrame, text="Save", font=('arial', 13, 'bold'), bg="red", fg="green")
+        save_btn = Button(btnFrame, text="Save", width=13, font=('arial', 13, 'bold'), bg="red", fg="white")
         save_btn.grid(row=0, column=0)
+
+        update_btn = Button(btnFrame, text="Update", width=13, font=('arial', 13, 'bold'), bg="red", fg="white")
+        update_btn.grid(row=0, column=1)
+
+        delete_btn = Button(btnFrame, text="Delete", width=13, font=('arial', 13, 'bold'), bg="red", fg="white")
+        delete_btn.grid(row=0, column=2)
+
+        reset_btn = Button(btnFrame, text="Reset", width=14, font=('arial', 13, 'bold'), bg="red", fg="white")
+        reset_btn.grid(row=0, column=3)
 
         # right label frame
         Right_frame = LabelFrame(main_frame, bd=2, relief=RIDGE, text="Student Details", font=("Calibri", 12, "bold"))
