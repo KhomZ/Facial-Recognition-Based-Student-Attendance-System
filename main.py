@@ -45,7 +45,7 @@ class Face_Recognition_System:
         bg_img.place(x=0, y=120, width=1350, height=580)
 
         title_lbl = Label(bg_img, text="FACE RECOGNITION ATTENDANCE SYSTEM SOFTWARE",
-                          font=("times new roman", 35, "bold"), bg="white", fg="red")
+                          font=("arial", 35, "bold"), bg="white", fg="magenta")
         title_lbl.place(x=0, y=0, width=1350, height=45)  # using .place u can place things at any part of the window
 
         # different buttons with images
