@@ -299,11 +299,38 @@ class Student:
     # validations
     def add_data(self):
         if self.var_dep.get() == "Select Department" or self.var_std_name.get() == "" or self.var_std_id.get() == "":
-            messagebox.showerror("Error", "All Fields are mandatory", parent=self.root) # parent=self.root shows the message explicitly in that window
+            messagebox.showerror("Error", "All Fields are mandatory", parent=self.root)
+            # here, parent=self.root shows the message explicitly in that window
         else:
-            pass
+            # pass
             # messagebox.showinfo("Success", "Data Saved Successfully")
+            try:
+                conn = mysql.connector.connect(host="localhost",
+                                               username="root",
+                                               password="Test@123",
+                                               database="face_recognizer")
+                my_cursor = conn.cursor()
+                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                  (
+                                      self.var_dep.get(),
+                                      self.var_course.get(),
+                                      self.var_year.get(),
+                                      self.var_semester.get(),
+                                      self.var_std_id.get(),
+                                      self.var_std_name.get(),
+                                      self.var_sec.get(),
+                                      self.var_roll.get(),
+                                      self.var_gender.get(),
+                                      self.var_phone.get(),
+                                      self.var_address.get(),
+                                      self.var_radio1.get()
+                                  ))
+                conn.commit()
+                conn.close()
+                messagebox.showinfo("Done", "Student details have been added successfully", parent=self.root)
 
+            except Exception as es:
+                messagebox.showerror("Error", f"Due To:{str(es)}", parent=self.root)
 
 
 if __name__ == "__main__":
