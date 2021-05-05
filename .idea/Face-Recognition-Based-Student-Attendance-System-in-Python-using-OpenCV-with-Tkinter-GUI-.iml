@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/demovenv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (Face-Recognition-Based-Student-Attendance-System-in-Python-using-OpenCV-with-Tkinter-GUI-)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
