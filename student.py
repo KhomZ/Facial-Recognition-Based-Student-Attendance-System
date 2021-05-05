@@ -183,11 +183,10 @@ class Student:
 
         # ==================================Radio Buttons========================================
         self.var_radio1 = StringVar()
-        radiobtn1 = ttk.Radiobutton(student_frame, textvariable=self.var_radio1, text="Capture Photo Sample", value="Yes")
+        radiobtn1 = ttk.Radiobutton(student_frame, variable=self.var_radio1, text="Capture Photo Sample", value="Yes")
         radiobtn1.grid(row=6, column=0)
-
-        self.var_radio2 = StringVar()
-        radiobtn2 = ttk.Radiobutton(student_frame, textvariable=self.var_radio2, text="No Photo Sample", value="No")
+        # self.var_radio2 = StringVar()
+        radiobtn2 = ttk.Radiobutton(student_frame, variable=self.var_radio1, text="No Photo Sample", value="No")
         radiobtn2.grid(row=6, column=1)
 
         # ==================================Buttons Frame========================================
@@ -338,3 +337,7 @@ if __name__ == "__main__":
     obj = Student(root)
     root.mainloop()
 
+# Project Type: Minor 6th Sem Project
+# Team : kyzen
+# College: NCIT (Nepal College of Information Technology)
+# University: Pokhara University
