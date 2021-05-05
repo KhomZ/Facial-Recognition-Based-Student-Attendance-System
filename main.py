@@ -1,4 +1,6 @@
-# Developer : team kyzen
+# Developer :
+# Team : kyzen
+# @authors : Khom, Keshav & Amish
 # Date : 
 
 from tkinter import *
