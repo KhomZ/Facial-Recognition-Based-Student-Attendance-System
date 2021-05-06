@@ -89,7 +89,7 @@ class Face_Recognition_System:
         btn3_3.place(x=700, y=245, width=195, height=40)
 
         # Help Desk button
-        img8 = Image.open("Images/helpdesk.png")
+        img8 = Image.open("Images/scholarImages/helpdesk_ky.png")
         img8 = img8.resize((195, 195), Image.ANTIALIAS)
         self.photoimg8 = ImageTk.PhotoImage(img8)
 
@@ -125,7 +125,7 @@ class Face_Recognition_System:
         btn6_6.place(x=400, y=525, width=195, height=40)
 
         # Developer button
-        img11 = Image.open("Images/developer.png")
+        img11 = Image.open("Images/scholarImages/team-kyzen-DEV.jpg")
         img11 = img11.resize((195, 195), Image.ANTIALIAS)
         self.photoimg11 = ImageTk.PhotoImage(img11)
 
