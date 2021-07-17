@@ -1,7 +1,4 @@
-
-Pillow==8.2.0
-image==1.5.33
-tk
+Pillow image tk
 python-tk
 numpy pandas matplotlib
 tkinter
