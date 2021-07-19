@@ -2,10 +2,17 @@
 Face recognition-based attendance system is a process of recognizing the faces of the students while taking attendance by using face bio-metrics based on high – definition monitor video and other information technology. In this face recognition project, a computer system will be able to find and recognize human faces quickly and precisely in images or videos that are being captured through a webcam / a surveillance camera.
 
 
-# Team Members
-  [Khom Raj Thapa Magar](https://khomz.github.io/)
-  [Keshav Raj Poudel](https://github.com/Keshav-46)
-  [Amish Thapa]()
+## Team Members
+* [Khom Raj Thapa Magar](https://khomz.github.io/)
+* [Keshav Raj Poudel](https://github.com/Keshav-46)
+* [Amish Thapa]()
+
+
+## Built With
+* Python
+* OpenCV
+* tkinter
+
 
 Following are the requirements for this software:
 
