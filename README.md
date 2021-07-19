@@ -20,16 +20,16 @@ The biggest issue in former attendance management system is the accuracy of the 
 
 
 ## Project Features
-* 1. Login Security System
-*       (Username & Password)
-* 2. Homepage
-*       Student Management System
-*       Train Photo Samples
-*       Take Attendance with Face Detection
-*       Attendance Report (.csv file & Sqlite database)
-*       Developer Page(Team Kyzen)
-*       Help Desk
-*       Exit System
+### 1. Login Security System
+* (Username & Password)
+### 2. Homepage
+* Student Management System
+* Train Photo Samples
+* Take Attendance with Face Detection
+* Attendance Report (.csv file & Sqlite database)
+* Developer Page(Team Kyzen)
+* Help Desk
+* Exit System
 
 
 ## Snapshots
@@ -51,13 +51,3 @@ The biggest issue in former attendance management system is the accuracy of the 
 * OpenCV
 * tkinter
 
-
-Following are the requirements for this software:
-
->> python3+
->> pip install Pillow==8.2.0
->> pip install image==1.5.33
->> pip install tk
->> pip install python-tk
->> pip install numpy pandas matplotlib
->> pip install tkinter / [sudo pacman -S tk]
