@@ -3,9 +3,11 @@ Face recognition-based attendance system is a process of recognizing the faces o
 
 
 ## Team Members
-* [Khom Raj Thapa Magar](https://khomz.github.io/)
-* [Keshav Raj Poudel](https://github.com/Keshav-46)
 * [Amish Thapa]()
+* [Keshav Raj Poudel](https://github.com/Keshav-46)
+* [Khom Raj Thapa Magar](https://khomz.github.io/)
+[click me](https://khomz.github.io/)
+
 
 
 ## Built With
