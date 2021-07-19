@@ -1,0 +1,9 @@
+Following are the requirements for this software:
+
+>> python3+
+>> pip install Pillow==8.2.0
+>> pip install image==1.5.33
+>> pip install tk
+>> pip install python-tk
+>> pip install numpy pandas matplotlib
+>> pip install tkinter / [sudo pacman -S tk]
