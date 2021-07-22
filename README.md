@@ -5,10 +5,14 @@
 * [Amish Thapa]()
 * [Keshav Raj Poudel](https://github.com/Keshav-46)
 * [Khom Raj Thapa Magar](https://khomz.github.io/)
+
+
 [[Click me!]](https://khomz.github.io/)
 
 ### Abstract
-Face recognition-based attendance system is a process of recognizing the faces of the students while taking attendance by using face bio-metrics based on high – definition monitor video and other information technology. In this face recognition project, a computer system will be able to find and recognize human faces quickly and precisely in images or videos that are being captured through a webcam / a surveillance camera. In our face recognition project, a compputer system will be able to find and recognize human faces quickly and precisely in images or videos that are being capptured through a webcam / surveillance camera. Here, faces will recognized using face recognition algorithm. The processed image will then be compared against the existing record and then attendance marked in the database accordingly. The human face is the mos distinctive feature used to uniquely identify an individual. That's why, it is used to trace identity as the possibilities for a face to deviate or being duplicated is low.
+Face recognition-based attendance system is a process of recognizing the faces of the students while taking attendance by using face bio-metrics based on high – definition monitor video and other information technology. In this face recognition project, a computer system will be able to find and recognize human faces quickly and precisely in images or videos that are being captured through a webcam / a surveillance camera. 
+In our face recognition project, a computer system will be able to find and recognize human faces quickly and precisely in images or videos that are being captured through a webcam / surveillance camera. 
+Here, faces will recognized using face recognition algorithm. The processed image will then be compared against the existing record and then attendance marked in the database accordingly. The human face is the most distinctive feature used to uniquely identify an individual. That's why, it is used to trace identity as the possibilities for a face to deviate or being duplicated is low.
 
 
 ### Problem Statement
