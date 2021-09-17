@@ -50,7 +50,7 @@ The biggest issue in former attendance management system is the accuracy of the 
 ![Student DBMS](Images/konsoleSNAP/student-DBMS.png)
 
 ### Training
-
+![Train](https://github.com/KhomZ/Face-Recognition-Based-Student-Attendance-System-in-Python-using-OpenCV-with-Tkinter-GUI-/blob/main/ProjectImages/Work%20Progress/trainingImagesSNAp.png?raw=true)
 
 ### Recoginition
 
