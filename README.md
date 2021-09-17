@@ -2,7 +2,7 @@
 
 
 ### Team Kyzen
-* [Amish Thapa]()
+* [Amish Thapa](https://github.com/amish-git)
 * [Keshav Raj Poudel](https://github.com/Keshav-46)
 * [Khom Raj Thapa Magar](https://khomz.github.io/)
 
