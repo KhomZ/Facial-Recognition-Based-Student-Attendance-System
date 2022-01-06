@@ -1,6 +1,6 @@
 
 from logging import root
-from os import close
+from os import SEEK_CUR, close
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -801,6 +801,8 @@ class Student:
                         face_cropped=img[y:y+h,x:x+w]
                         return face_cropped
                 cap=cv2.VideoCapture(0)
+
+                
                 img_id=0
                 while True:
                     ret,my_frame=cap.read()
@@ -808,7 +810,9 @@ class Student:
                         img_id+=1
                         face=cv2.resize(face_cropped(my_frame),(450,450))
                         face =cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
-                        file_name_path="data/"+str(Roll)+"."+str(id)+"."+str(img_id)+".jpg"
+                        # file_name_path="data/"+str(self.var_roll.get())+"."+str(id)+"."+str(img_id)+".jpg"
+                        # file_name_path="data/"+str(Roll)+"."+str(id)+"."+str(img_id)+".jpg"
+                        file_name_path="data/"+"user"+"."+str(id)+"."+str(img_id)+".jpg"
                         cv2.imwrite(file_name_path,face)
                         cv2.putText(face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
                         cv2.imshow("Cropped Face",face)
