@@ -24,8 +24,10 @@ class Register:
         # background img
         # self.bg = ImageTk.PhotoImage(
         #     file=r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\img\5.jpg")
+        # self.bg = ImageTk.PhotoImage(
+        #     file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\9.jpg")
         self.bg = ImageTk.PhotoImage(
-            file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\5.jpg")
+            file=r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\nepal.jpg")
         lbl_lbl = Label(self.root, image=self.bg)
         lbl_lbl.place(x=0, y=0, relwidth=1, relheight=1)
 
@@ -35,7 +37,7 @@ class Register:
         self.bg1 = ImageTk.PhotoImage(
             file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\6.jpg")
         left_lbl = Label(self.root, image=self.bg1)
-        left_lbl.place(x=50, y=100, width=470, height=550)
+        left_lbl.place(x=30, y=100, width=500, height=550)
         # main frame
         frame = Frame(self.root, bg="white")
         frame.place(x=520, y=100, width=800, height=550)
