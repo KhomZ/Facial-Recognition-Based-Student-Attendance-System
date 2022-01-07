@@ -119,7 +119,16 @@ import mysql.connector
 import cv2
 import os
 import numpy as np
+import pyttsx3
 
+
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)  # 1 is for female voice and 0 is for male voice
+
+def speak_va(transcribed_query):
+    engine.say(transcribed_query)
+    engine.runAndWait()
 
 
 class Train:
@@ -176,7 +185,8 @@ class Train:
         clf.train(faces,ids)
         clf.write("classifier.xml")
         cv2.destroyAllWindows()
-        messagebox.showinfo("Result","Training datasets completed !",parent=self.root)
+        speak_va("Training datasets completed successfully!")
+        messagebox.showinfo("Result","Training datasets completed successfully!",parent=self.root)
         # self.root.destroy()
 
 

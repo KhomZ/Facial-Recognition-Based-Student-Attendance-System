@@ -11,7 +11,16 @@ from time import strftime
 from datetime import datetime
 import csv
 from tkinter import filedialog
+import pyttsx3
 
+
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)  # 1 is for female voice and 0 is for male voice
+
+def speak_va(transcribed_query):
+    engine.say(transcribed_query)
+    engine.runAndWait()
 
 
 mydata=[]
@@ -227,14 +236,17 @@ class Attendance:
                 "Date":date,
                 "Attendance":attendn 
                     })
+            speak_va("Your Data Exported to" + os.path.basename(fln) + " Successfully")
             messagebox.showinfo("Data Exported","Your data exported to " +os.path.basename(fln)+ " Successfully",parent=self.root)
         except Exception as es:
+            speak_va("Error")
             messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)        
                
     # export csv         
     def exportCsv(self):    
         try:
             if len(mydata)<1:
+                speak_va("No Data Found")
                 messagebox.showerror("No Data","No Data Found",parent=self.root)
                 return False
             fln=filedialog.asksaveasfile(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
@@ -242,8 +254,10 @@ class Attendance:
                 exp_write=csv.writer(myfile,delimiter=",")
                 for i in mydata:
                     exp_write.writerow(i)
+                speak_va("Your Data Exported to" + os.path.basename(fln) + " Successfully")
                 messagebox.showinfo("Data Export","Your Data has been Exported to"+os.path.basename(fln)+"Successfully")    
         except Exception as es:
+                speak_va("Error")
                 messagebox.showerror("Error",f"Due to : {str(es)}",parent=self.root)
         
 

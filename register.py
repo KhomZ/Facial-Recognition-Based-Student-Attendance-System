@@ -109,7 +109,7 @@ class Register:
             frame, textvariable=self.var_pass, font=("times new roman", 15))
         self.txt_pswd.place(x=50, y=340, width=250)
 
-        confirm_pswd = Label(frame, text="Comfirm Password", font=(
+        confirm_pswd = Label(frame, text="Confirm Password", font=(
             "times new roman", 15, "bold"), bg="white")
         confirm_pswd.place(x=370, y=310)
 

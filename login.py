@@ -536,8 +536,7 @@ class Register:
             my_cursor.execute(query, value)
             row = my_cursor.fetchone()
             if row != None:
-                messagebox.showerror(
-                    "Error", "user already exists ,try another email", parent=self.root )
+                messagebox.showerror("Error", "user already exists ,try another email", parent=self.root )
             else:
                 my_cursor.execute("insert into register values(%s,%s,%s,%s,%s,%s,%s)", (
 

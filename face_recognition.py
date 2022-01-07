@@ -1,4 +1,6 @@
 from ntpath import join
+
+from pyttsx3 import speak
 from student import Student
 from tkinter import*
 from tkinter import ttk
@@ -18,8 +20,16 @@ from os import listdir
 import time
 import pandas as pd
 import csv
+import pyttsx3
 
 
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)  # 1 is for female voice and 0 is for male voice
+
+def speak_va(transcribed_query):
+    engine.say(transcribed_query)
+    engine.runAndWait()
 
 
 class Face_Recognition:
@@ -156,6 +166,7 @@ class Face_Recognition:
 
                 else:
                     cv2.rectangle(img,(x,y),(x+w+20,y+h+20),(0,0,255),3)
+                    speak_va("Warning!!! Unknown Face")
                     cv2.putText(img,"Unknown Face",(x,y-5),cv2.FONT_HERSHEY_COMPLEX,0.8,(255,255,255),3)
 
                 coord=[x,y,w,h]
@@ -175,6 +186,7 @@ class Face_Recognition:
         while True:
             ret,img=video_cap.read()
             img=recognize(img,clf,faceCascade)
+            # speak_va("Welcome to Face Recognition World")
             cv2.imshow("Welcome to face Recognition",img)
 
 
