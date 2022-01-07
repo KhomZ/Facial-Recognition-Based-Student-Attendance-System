@@ -762,10 +762,10 @@ class Student:
                 # conn=mysql.connector.connect(host="localhost",username="root",password="Keshav@123",database="mydata")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select * from student1")
-                myresult=my_cursor.fetchall()
-                id=0
+                myresult = my_cursor.fetchall()
+                id = 0
                 for x in myresult:
-                    id+=1
+                    id += 1
                 my_cursor.execute("update student1 set Dep=%s,course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where id=%s",(
 
                                                                                                                                                                                         self.var_dep.get(),

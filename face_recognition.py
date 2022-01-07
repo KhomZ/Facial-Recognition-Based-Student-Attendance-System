@@ -111,26 +111,26 @@ class Face_Recognition:
                 my_cursor=conn.cursor()
 
                 my_cursor.execute("select Name from student1 where id="+str(id))
-                n=my_cursor.fetchone()
-                # n=str(n)
+                n = my_cursor.fetchone()
 
-                n="+".join(n)
+                n = str(n)
+                # n="+".join(n)
 
                 my_cursor.execute("select Roll from student1 where id="+str(id))
                 r=my_cursor.fetchone()
-                # r=str(r)
-                r="+".join(r)
+                r = str(r)
+                # r = "+".join(r)
 
                 
                 my_cursor.execute("select Dep from student1 where id="+str(id))
                 d=my_cursor.fetchone()
-                # d=str(d)
-                d="+".join(d)
+                d = str(d)
+                # d = "+".join(d)
 
                 my_cursor.execute("select id from student1 where id="+str(id))
                 i=my_cursor.fetchone()
-                # i=str(i)
-                i= "+".join(i)
+                i = str(i)
+                # i = "+".join(i)
                 
                 # new code for accuracy calculation
                 # img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -204,7 +204,8 @@ class Face_Recognition:
     # # writer.writerow(["your", "header", "foo"])  # write header
     #         writer.writerow(data)
     
-        DF_RM_DUP.to_csv('test.csv', index=False) 
+        # DF_RM_DUP.to_csv('test.csv', index=False) 
+        DF_RM_DUP.to_csv('Teamkyzen23.csv', index=False) 
 
 
        
