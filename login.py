@@ -10,15 +10,27 @@ import os
 from attendance import Attendance
 import re
 import tkinter
+import pyttsx3  # pip install pyttsx3
+
 
 # from mysql.connector import cursor
 # from logging import root
 # from os import close
 
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)  # 1 is for female voice and 0 is for male voice
+
+
 def main():
     win = Tk()
     app = login_window(win)
     win.mainloop()
+
+
+def speak_va(transcribed_query):
+    engine.say(transcribed_query)
+    engine.runAndWait()
 
 
 class login_window:
@@ -29,8 +41,8 @@ class login_window:
 
         # self.bg = ImageTk.PhotoImage(
         #     file=r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\Images\re2.jpg")
-        # self.bg = ImageTk.PhotoImage(file = r"Images\re2.jpg")
-        self.bg = ImageTk.PhotoImage(file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\Images\re2.jpg")
+        self.bg = ImageTk.PhotoImage(file = r"Images\re2.jpg")
+        # self.bg = ImageTk.PhotoImage(file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\Images\re2.jpg")
 
         lbl_bg = Label(self.root, image=self.bg)
         lbl_bg.place(x=0, y=0,width=1366,height=650)
@@ -40,8 +52,8 @@ class login_window:
 
         # img1 = Image.open(
         #     r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\img\2.jpg")
-        # img1 = Image.open(r"img\2.jpg")
-        img1 = Image.open(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\2.jpg")
+        img1 = Image.open(r"img\2.jpg")
+        # img1 = Image.open(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\2.jpg")
 
         img1 = img1.resize((100, 100), Image.ANTIALIAS)
         self.photoimage1 = ImageTk.PhotoImage(img1)
@@ -70,8 +82,8 @@ class login_window:
         # icon.............
         # img2 = Image.open(
         #     r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\img\2.jpg")
-        # img2 = Image.open(r"img\2.jpg")
-        img2 = Image.open(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\2.jpg")
+        img2 = Image.open(r"img\2.jpg")
+        # img2 = Image.open(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\2.jpg")
 
         img2 = img2.resize((20, 20), Image.ANTIALIAS)
         self.photoimage2 = ImageTk.PhotoImage(img2)
@@ -80,8 +92,8 @@ class login_window:
 
         # img3 = Image.open(
         #     r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\img\3.jpg")
-        # img3 = Image.open(r"img\3.jpg")
-        img3 = Image.open(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\3.jpg")
+        img3 = Image.open(r"img\3.jpg")
+        # img3 = Image.open(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\3.jpg")
 
         img3 = img3.resize((20, 20), Image.ANTIALIAS)
         self.photoimage3 = ImageTk.PhotoImage(img3)
@@ -110,6 +122,7 @@ class login_window:
         if self.txtuser.get() == "" or self.txtpass.get() == "":
             messagebox.showerror("Error", "all field required")
         elif self.txtuser.get() == "khom37" or "Khom" and self.txtpass.get() == "khom@123":
+            speak_va("Welcome to Face Recognition World")
             messagebox.showinfo("success", "welcome to Face Recognition World")
         else:
             conn = mysql.connector.connect(host="localhost", user="root", password="root@khom123", database="khomdb")
@@ -121,6 +134,7 @@ class login_window:
                      ))
             row=my_cursor.fetchone()
             if row==None:
+                speak_va("Invalid username and password!")
                 messagebox.showerror("Error","Invalid username and password")
             else:
                 open_main=messagebox.askyesno("YesNo","Acess only admin")
@@ -158,11 +172,13 @@ class login_window:
             #          ))
             row=my_cursor.fetchone()
             if row==None:
+                speak_va("Wrong Security Answer")
                 messagebox.showerror("Error","Invalid security answer")
             else:
                 query=("update register set password=%s where email=%s")
                 value=(self.txt_newpassword.get(),self.txtuser.get())
                 my_cursor.execute(query,value)
+                speak_va("Your password has been reset successfully.")
                 messagebox.showinfo("Info","your password has been reset , please login new password",parent=self.root2)
             conn.commit()
             conn.close()
@@ -483,7 +499,7 @@ class Register:
 
     def register_data(self):
         if self.var_fname.get() == "" or self.var_email.get() == "" or self.var_securityQ.get() == "Select":
-            messagebox.showerror("Error", "All fills are required",parent=self.root)
+            messagebox.showerror("Error", "All fields are required",parent=self.root)
         elif self.var_pass.get() != self.var_confpass.get():
             messagebox.showerror(
                 "Error", "password and confirm password must be same",parent=self.root)
