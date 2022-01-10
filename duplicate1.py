@@ -15,6 +15,13 @@ df.to_csv(r"test1.csv", header = ['id', 'Roll', 'Name', 'Dept', 'Time', 'Date', 
 # save to new csv file
 
 # finaldata = pd.read_csv(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\test1.csv")
+
 finaldata = pd.read_csv(r"test1.csv")
 
-print(finaldata)
+# read CSV file
+# results = pd.read_csv(r'test1.csv')
+  
+# count no. of lines
+print("Number of lines present:-", len(finaldata))
+
+# print(finaldata)

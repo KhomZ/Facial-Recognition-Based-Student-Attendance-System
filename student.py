@@ -13,9 +13,16 @@ from time import strptime
 import re
 # from tkcalendar import Calendar
 from tkcalendar import DateEntry
+import pyttsx3
 
 
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)  # 1 is for female voice and 0 is for male voice
 
+def speak_va(transcribed_query):
+    engine.say(transcribed_query)
+    engine.runAndWait()
 
 
 class Student:
@@ -460,6 +467,7 @@ class Student:
         if name=='':
             return True
         else:
+            speak_va('Invalid!')
             messagebox.showerror('Invalid','Not allowed' +name[-1])
     def checkname(self,name):
        for char in name:
@@ -489,10 +497,12 @@ class Student:
           if len(str(phone))==0:
             return True
           else:
-            messagebox.showerror('Invalid','Invalid entry. Please enter phone (example:9846200045)')
-            return False
+              speak_va('Invalid phone no. Format')
+              messagebox.showerror('Invalid','Invalid entry. Please enter phone (example:9846200045)')
+              return False
             
         else:
+            speak_va('Alert!!! Invalid Phone No.')
             messagebox.showwarning('Alert','invalid phone. Please enter phone (example:9846200045)')
             return False
 
@@ -588,6 +598,7 @@ class Student:
             messagebox.showerror("Error", "All fields Are Required",parent=self.root)
 
         elif not ("@" or ".com") in self.var_email.get():
+            speak_va('Try valid email address!!')
             messagebox.showerror("Error",'Invalid email Enter valid email like keshav123@gmail.com ',parent=self.root)
         else:
             try:
@@ -617,8 +628,10 @@ class Student:
                 conn.commit()
                 self.fetch_data()
                 conn.close()
-                messagebox.showinfo("Sucess","Student details has been added Sucessfully",parent=self.root)
+                speak_va('Student Details has been added successfully.')
+                messagebox.showinfo("Success","Student details has been added Sucessfully",parent=self.root)
             except Exception as es:
+                speak_va('An Exception Occurred!')
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
 
@@ -664,6 +677,7 @@ class Student:
 
     def update_data(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+            speak_va('All fields are required')
             messagebox.showerror("Error", "All fields Are Required",parent=self.root)
 
         else:
@@ -696,11 +710,13 @@ class Student:
                 else:
                     if not Upadate:
                         return
-                messagebox.showinfo("Sucess","Student Details Successfully update completed",parent=self.root)                                                                                                                                              
+                speak_va('Student Details updated successfully.')
+                messagebox.showinfo("Success","Student Details Successfully update completed",parent=self.root)                                                                                                                                              
                 conn.commit()
                 self.fetch_data()
                 conn.close()
             except Exception as es:
+                speak_va('An Exception Occurred!')
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
 
@@ -708,6 +724,7 @@ class Student:
 # ===================Delete Function===================
     def delete_data(self):
         if self.var_std_id.get()=="":
+            # speak_va('Student ID is mandatory')
             messagebox.showerror("Error","Student Id Must be Required",parent=self.root)
         else:
             try:
@@ -727,9 +744,11 @@ class Student:
                 conn.commit()
                 self.fetch_data()
                 conn.close()
+                speak_va('Student Details deleted successfully')
                 messagebox.showinfo("Delete","Student Details Successfully deleted",parent=self.root)
 
             except Exception as es:
+                speak_va('An exception occurred!')
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
 
@@ -755,6 +774,7 @@ class Student:
 
     def generate_dataset(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+            speak_va('All Fields are mandatory.')
             messagebox.showerror("Error", "All fields Are Required",parent=self.root)
         else:
             try:

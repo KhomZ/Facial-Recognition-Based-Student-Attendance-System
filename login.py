@@ -45,7 +45,8 @@ class login_window:
         # self.bg = ImageTk.PhotoImage(file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\Images\re2.jpg")
 
         lbl_bg = Label(self.root, image=self.bg)
-        lbl_bg.place(x=0, y=0,width=1366,height=650)
+        # lbl_bg.place(x=0, y=0,width=1366,height=650)
+        lbl_bg.place(x=0, y=0, width=1466,height=850)
 
         frame = Frame(self.root, bg="Green")
         frame.place(x=610, y=170, width=340, height=450)
