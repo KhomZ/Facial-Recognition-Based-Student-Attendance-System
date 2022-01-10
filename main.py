@@ -15,41 +15,44 @@
 #         self.root.geometry("1450x720+0+0")
 #         self.root.title("Face Recognition System")
 
-#         # first image
-#         img1 = Image.open("Images/PUbanner_2.jpg")
-#         img1 = img1.resize((450, 120), Image.ANTIALIAS)
-#         self.photoimg1 = ImageTk.PhotoImage(img1)
+#         # # first image
+#         # img1 = Image.open("Images/PUbanner_2.jpg")
+#         # img1 = img1.resize((450, 120), Image.ANTIALIAS)
+#         # self.photoimg1 = ImageTk.PhotoImage(img1)
 
-#         f_lbl = Label(self.root, image=self.photoimg1)
-#         f_lbl.place(x=0, y=0, width=450, height=120)
+#         # f_lbl = Label(self.root, image=self.photoimg1)
+#         # f_lbl.place(x=0, y=0, width=450, height=120)
 
 #         # second image
-#         img2 = Image.open("Images/OIP.jpeg")
+#         img2 = Image.open("Images/eye.jpg")
 #         img2 = img2.resize((450, 120), Image.ANTIALIAS)
 #         self.photoimg2 = ImageTk.PhotoImage(img2)
 
 #         f_lbl = Label(self.root, image=self.photoimg2)
 #         f_lbl.place(x=450, y=0, width=450, height=120)
 
-#         # third image
-#         img3 = Image.open("Images/ncit-wide2017-11-18.jpg")
-#         img3 = img3.resize((450, 120), Image.ANTIALIAS)
-#         self.photoimg3 = ImageTk.PhotoImage(img3)
+#         # # third image
+#         # img3 = Image.open("Images/ncit-wide2017-11-18.jpg")
+#         # img3 = img3.resize((450, 120), Image.ANTIALIAS)
+#         # self.photoimg3 = ImageTk.PhotoImage(img3)
 
-#         f_lbl = Label(self.root, image=self.photoimg3)
-#         f_lbl.place(x=900, y=0, width=450, height=120)
+#         # f_lbl = Label(self.root, image=self.photoimg3)
+#         # f_lbl.place(x=900, y=0, width=450, height=120)
 
 #         # background image
-#         img4 = Image.open("Images/face-recognition-logo.jpeg")
-#         img4 = img4.resize((1350, 580), Image.ANTIALIAS)
+#         # img4 = Image.open("Images/face-recognition-logo.jpeg")
+#         img4 = Image.open("Images/ai-shutterstock.jpg")
+#         # img4 = img4.resize((1350, 580), Image.ANTIALIAS)
+#         img4 = img4.resize((1550, 780), Image.ANTIALIAS)
 #         self.photoimg4 = ImageTk.PhotoImage(img4)
 
 #         bg_img = Label(self.root, image=self.photoimg4)
-#         bg_img.place(x=0, y=120, width=1350, height=580)
+#         # bg_img.place(x=0, y=120, width=1350, height=580)
+#         bg_img.place(x=0, y=120, width=1550, height=780)
 
 #         title_lbl = Label(bg_img, text="FACE RECOGNITION ATTENDANCE SYSTEM SOFTWARE",
-#                           font=("arial", 35, "bold"), bg="white", fg="magenta")
-#         title_lbl.place(x=0, y=0, width=1350, height=45)  # using .place u can place things at any part of the window
+#                           font=("Algerian", 35, "bold"), bg="white", fg="darkgreen")
+#         title_lbl.place(x=0, y=0, width=1550, height=45)  # using .place u can place things at any part of the window
 
 #         # different buttons with images
 #         # student button

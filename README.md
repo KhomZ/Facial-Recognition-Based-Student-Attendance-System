@@ -44,7 +44,7 @@ The biggest issue in former attendance management system is the accuracy of the 
 ### Snapshots
 
 ### HomePage
-![Home](Images/konsoleSNAP/Homepage_khom.png)
+![Home](pitching-ideas/proposed/proposed-homepage.jpg)
 
 ### Student Management System
 ![Student DBMS](Images/konsoleSNAP/student-DBMS.png)
