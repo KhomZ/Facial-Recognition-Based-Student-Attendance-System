@@ -27,6 +27,7 @@ engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)  # 1 is for female voice and 0 is for male voice
 
+
 def speak_va(transcribed_query):
     engine.say(transcribed_query)
     engine.runAndWait()
@@ -39,7 +40,7 @@ class Face_Recognition:
         self.root.title("Face Recognition System")
 
 
-        title_lbl=Label(self.root,text="FACE RECONGNITION",font=("Algerian",20,"bold"),bg="lightblue",fg="darkgreen")
+        title_lbl=Label(self.root,text="FACE RECOGNITION",font=("Algerian",20,"bold"),bg="lightblue",fg="darkgreen")
         title_lbl.place(x=0,y=0,width=1366,height=35)
 
        #first image
@@ -72,6 +73,7 @@ class Face_Recognition:
 
 
         # =================Attendance ====================
+    # def mark_attendance(self,i,r,n,d):
     def mark_attendance(self,i,r,n,d):
         with open("Teamkyzen23.csv","r+",newline="\n") as f:
             
@@ -124,6 +126,7 @@ class Face_Recognition:
                 n = my_cursor.fetchone()
 
                 n = str(n)
+                print(n)
                 # n="+".join(n)
 
                 my_cursor.execute("select Roll from student1 where id="+str(id))
@@ -174,7 +177,7 @@ class Face_Recognition:
             return coord 
             
         def recognize(img,clf,faceCascade):
-            coord=draw_boundray(img,faceCascade,1.1,10,(255,25,255),"Face",clf)   
+            coord = draw_boundray(img, faceCascade, 1.1, 10, (255,25,255), "Face", clf)   
             return img
         
         faceCascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
@@ -195,6 +198,7 @@ class Face_Recognition:
                 break
         video_cap.release()
         cv2.destroyAllWindows()
+
 
         # df_state=pd.read_csv(r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\Teamkyzen23.csv")
         df_state = pd.read_csv(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\Teamkyzen23.csv")
@@ -217,7 +221,7 @@ class Face_Recognition:
     #         writer.writerow(data)
     
         # DF_RM_DUP.to_csv('test.csv', index=False) 
-        DF_RM_DUP.to_csv('Teamkyzen23.csv', index=False) 
+        DF_RM_DUP.to_csv('test1.csv', index=False) 
 
 
        

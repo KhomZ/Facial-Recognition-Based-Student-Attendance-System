@@ -146,7 +146,9 @@ class Attendance:
         save_button=Button(btn_frame,text="Import csv",command=self.importCsv,width=17,font=("times new roman",12,"bold"),bg="green",fg="white")
         save_button.grid(row=0,column=0)
 
-        update_button=Button(btn_frame,text="Export csv ",command=self.exportCsv,width=17,font=("times new roman",12,"bold"),bg="green",fg="white")
+        # update_button=Button(btn_frame,text="Export csv ",command=self.exportCsv,width=17,font=("times new roman",12,"bold"),bg="green",fg="white")
+        # update_button.grid(row=0,column=1)
+        update_button=Button(btn_frame,text="View Attendance Report ",command=self.viewReport,width=18,font=("times new roman",12,"bold"),bg="green",fg="white")
         update_button.grid(row=0,column=1)
         
         delete_button=Button(btn_frame,text="Update",width=17,command=self.action,font=("times new roman",12,"bold"),bg="green",fg="white")
@@ -242,8 +244,28 @@ class Attendance:
             speak_va("Error")
             messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)        
                
-    # export csv         
-    def exportCsv(self):    
+    # # export csv         
+    # def exportCsv(self):    
+    #     try:
+    #         if len(mydata)<1:
+    #             speak_va("No Data Found")
+    #             messagebox.showerror("No Data","No Data Found",parent=self.root)
+    #             return False
+    #         fln=filedialog.asksaveasfile(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
+    #         with open(fln,mode="w",newline="") as myfile:
+    #             exp_write=csv.writer(myfile,delimiter=",")
+    #             for i in mydata:
+    #                 exp_write.writerow(i)
+    #             speak_va("Your Data Exported to" + os.path.basename(fln) + " Successfully")
+    #             messagebox.showinfo("Data Export","Your Data has been Exported to"+os.path.basename(fln)+"Successfully")    
+    #     except Exception as es:
+    #             speak_va("Error")
+    #             messagebox.showerror("Error",f"Due to : {str(es)}",parent=self.root)
+
+
+
+    # view attendance report csv         
+    def viewReport(self):    
         try:
             if len(mydata)<1:
                 speak_va("No Data Found")

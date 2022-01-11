@@ -119,7 +119,7 @@ class Register:
 
         # ......check button
         self.var_check = IntVar()
-        checkbtn = Checkbutton(frame, variable=self.var_check, text="I am Agree terms and conditions", font=(
+        checkbtn = Checkbutton(frame, variable=self.var_check, text="I am Agreed with the terms and conditions", font=(
             "times new roman", 12, "bold"), bg="white", onvalue=1, offvalue=0)
         checkbtn.place(x=50, y=380)
 
@@ -127,8 +127,9 @@ class Register:
 
         # img = Image.open(
         #     r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\img\7.jpg")
-        img = ImageTk.PhotoImage(
-            file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\7.jpg")
+        # img = ImageTk.PhotoImage(file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\7.jpg")
+        # img = ImageTk.PhotoImage(file = r"img\7.jpg")
+        img = Image.open(r"img\7.jpg")
         img = img.resize((200, 50), Image.ANTIALIAS)
         self.photoimage = ImageTk.PhotoImage(img)
         b1 = Button(frame, command=self.register_data,
@@ -137,8 +138,8 @@ class Register:
 
         # img1 = Image.open(
         #     r"E:\6th sem\my_project\Face_reg\face_recognize_student_attendence_system\img\8.jpg")
-        img1 = ImageTk.PhotoImage(
-            file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\8.jpg")
+        # img1 = ImageTk.PhotoImage(file = r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\img\8.jpg")
+        img1 = Image.open(r"img\8.jpg")
         img1 = img1.resize((200, 50), Image.ANTIALIAS)
         self.photoimage1 = ImageTk.PhotoImage(img1)
         b1 = Button(frame, image=self.photoimage1,

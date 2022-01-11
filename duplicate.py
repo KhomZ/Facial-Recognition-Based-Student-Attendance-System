@@ -38,7 +38,7 @@ DF_RM_DUP = df_state.drop_duplicates(keep=False)
 #     writer.writerow(data)
 # )
 
-DF_RM_DUP.to_csv('test.csv', index=False) 
+DF_RM_DUP.to_csv('test1.csv', index=False) 
 
 # print('\n\nResult DataFrame after duplicate removal :\n', DF_RM_DUP.head(n=1))
 # data = DF_RM_DUP.head(n=1)

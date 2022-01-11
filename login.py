@@ -125,6 +125,8 @@ class login_window:
         elif self.txtuser.get() == "khom37" or "Khom" and self.txtpass.get() == "khom@123":
             speak_va("Welcome to Face Recognition World")
             messagebox.showinfo("success", "welcome to Face Recognition World")
+            self.new_window=Toplevel(self.root)
+            self.app=Face_Recognition_System(self.new_window)
         else:
             conn = mysql.connector.connect(host="localhost", user="root", password="root@khom123", database="khomdb")
             my_cursor = conn.cursor()
@@ -149,8 +151,9 @@ class login_window:
             conn.close()
             # self.root.destroy()
         # self.root.destroy()
+        
 
-            #************************************Reaet password button ko lagi*******************
+            #************************************Reset password button ko lagi*******************
     def reset_pass(self):
         if self.combo_security_Q.get()=="Select":
                 messagebox.showerror("Error","select the security question",parent=self.root2)
@@ -871,7 +874,8 @@ class Face_Recognition_System:
 
 # .................exit button
     def iexit(self):
-        self.iexit=tkinter.messagebox.askyesno("Face Recognition","Are you sure exit this project",parent=self.root)
+        speak_va("Are you sure you want to exit this project?")
+        self.iexit=tkinter.messagebox.askyesno("Face Recognition","Are you sure you want to exit this project?",parent=self.root)
         if self.iexit>0:
             self.root.destroy()
         else:

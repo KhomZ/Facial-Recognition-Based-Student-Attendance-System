@@ -18,7 +18,7 @@ import pyttsx3
 
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)  # 1 is for female voice and 0 is for male voice
+engine.setProperty('voice', voices[1].id)  # 1 is for female voice and 0 is for male voice
 
 def speak_va(transcribed_query):
     engine.say(transcribed_query)
@@ -126,7 +126,7 @@ class Student:
 
 
         dep_combo=ttk.Combobox(current_course_frame,textvariable=self.var_dep,font=("times new roman",13,"bold"),state="readonly",width=18)
-        dep_combo["values"]=("Select Department","IT","Computer","Civil","Elx","Software")
+        dep_combo["values"]=("Select Department","IT","Computer","Civil","Elx & Comm","Software")
         dep_combo.current(0)
         dep_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
@@ -467,7 +467,7 @@ class Student:
         if name=='':
             return True
         else:
-            speak_va('Invalid!')
+            speak_va('Invalid! Name Not allowed.')
             messagebox.showerror('Invalid','Not allowed' +name[-1])
     def checkname(self,name):
        for char in name:
@@ -497,12 +497,12 @@ class Student:
           if len(str(phone))==0:
             return True
           else:
-              speak_va('Invalid phone no. Format')
+              speak_va('Invalid phone number Format')
               messagebox.showerror('Invalid','Invalid entry. Please enter phone (example:9846200045)')
               return False
             
         else:
-            speak_va('Alert!!! Invalid Phone No.')
+            speak_va('Alert!!! Invalid Phone Number')
             messagebox.showwarning('Alert','invalid phone. Please enter phone (example:9846200045)')
             return False
 
@@ -514,11 +514,12 @@ class Student:
           if len(str(id))==0:
             return True
           else:
-            messagebox.showerror('Invalid','Invalid entry ID. Please enter phone (example: ID :- 1 2 3 4 5 6 7...like this)')
-            return False
-            
+              speak_va('Invalid ID. Please enter ID as integer value')
+              messagebox.showerror('Invalid','Invalid entry ID. Please enter ID as integer value (example: ID :- 1 2 3 4 5 6 7...like this)')
+              return False
         else:
-            messagebox.showwarning('Alert','invalid ID. Please enter phone (example: ID :- 1 2 3 4 5 6 7...like this)')
+            speak_va('Invalid ID.')
+            messagebox.showwarning('Alert','invalid ID. Please Enter valid ID.')
             return False
 
 
@@ -530,10 +531,11 @@ class Student:
           if len(str(roll))==0:
             return True
           else:
-            messagebox.showerror('Invalid','Invalid entry enter Roll No (example: Roll No: 171346)')
-            return False
-            
+              speak_va('Invalid Roll number. Please Enter your valid roll number.')
+              messagebox.showerror('Invalid','Invalid entry enter Roll No (example: Roll No: 171346)')
+              return False
         else:
+            speak_va('Invalid Roll number.')
             messagebox.showwarning('Alert','invalid phone enter Roll No (example: Roll No: 171346)')
             return False
         
@@ -595,10 +597,12 @@ class Student:
 ####function decleration ######
     def add_data(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+            speak_va("Alert!!! All Fields are Mandatory.")
             messagebox.showerror("Error", "All fields Are Required",parent=self.root)
 
         elif not ("@" or ".com") in self.var_email.get():
             speak_va('Try valid email address!!')
+            # speak_va("Invalid Email")
             messagebox.showerror("Error",'Invalid email Enter valid email like keshav123@gmail.com ',parent=self.root)
         else:
             try:
@@ -677,12 +681,13 @@ class Student:
 
     def update_data(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
-            speak_va('All fields are required')
+            speak_va('Alert!!! All fields are required.')
             messagebox.showerror("Error", "All fields Are Required",parent=self.root)
 
         else:
             try:
-                Upadate=messagebox.askyesno("Upadate","Do You Want To Update This Student Details",parent=self.root)
+                speak_va("Do you want to Update this Student's Details?")
+                Upadate = messagebox.askyesno("Upadate","Do You Want To Update This Student Details",parent=self.root)
                 if Upadate>0:
                     conn=mysql.connector.connect(host="localhost",username="root",password="root@khom123",database="khomdb")
                     # conn=mysql.connector.connect(host="localhost",username="root",password="Keshav@123",database="mydata")
@@ -711,7 +716,7 @@ class Student:
                     if not Upadate:
                         return
                 speak_va('Student Details updated successfully.')
-                messagebox.showinfo("Success","Student Details Successfully update completed",parent=self.root)                                                                                                                                              
+                messagebox.showinfo("Success","Student Details updated Successfully.",parent=self.root)                                                                                                                                              
                 conn.commit()
                 self.fetch_data()
                 conn.close()
@@ -728,6 +733,7 @@ class Student:
             messagebox.showerror("Error","Student Id Must be Required",parent=self.root)
         else:
             try:
+                speak_va("Do you want to Delete this Student's Details?")
                 delete=messagebox.askyesno("Student Delete Page","Do You Want To Delete This Student Details",parent=self.root)
                 if delete>0:
                     conn=mysql.connector.connect(host="localhost",username="root",password="root@khom123",database="khomdb")
@@ -744,7 +750,7 @@ class Student:
                 conn.commit()
                 self.fetch_data()
                 conn.close()
-                speak_va('Student Details deleted successfully')
+                speak_va('Student Details deleted successfully.')
                 messagebox.showinfo("Delete","Student Details Successfully deleted",parent=self.root)
 
             except Exception as es:
@@ -842,8 +848,10 @@ class Student:
                 cap.release()
                 cv2.destroyAllWindows()
 
-                messagebox.showinfo("Result","Generated data set completed!!!",parent=self.root)
+                speak_va("Generation of Data Set completed.")
+                messagebox.showinfo("Result","Generation of data set completed!!!",parent=self.root)
             except Exception as es:
+                speak_va("An Exception occurred")
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
 
@@ -865,10 +873,12 @@ class Student:
                     for i in rows:
                         self.student_table.insert("",END,values=i)
                     if rows==None:
+                        speak_va("Data Not Found")
                         messagebox.showerror("Error","Data Not Found",parent=self.root)
                         conn.commit()
                 conn.close()
             except Exception as es:
+                speak_va("An Exception Occurred!")
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
             # show all 

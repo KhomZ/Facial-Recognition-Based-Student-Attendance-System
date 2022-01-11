@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 
 # df = pd.read_csv(r"C:\Users\ACER\Desktop\myProj\Facial-Recognition-Based-Student-Attendance-System\customKyzen.csv", header=None)
-df = pd.read_csv(r"customKyzen.csv", header=None)
+df = pd.read_csv(r"Teamkyzen23.csv", header=None)
 
 
 print(df)
@@ -11,6 +11,7 @@ print(df)
 # df.rename(columns={0: 'name', 1: 'id'}, inplace=True)
 # df.columns = ['id' 'Roll' 'name' 'Dept' 'Time' 'Date' 'Status'] 
 
+# df.to_csv(r"test1.csv", header = ['id', 'Roll', 'Name', 'Dept', 'Time', 'Date', 'Status'], index=False) 
 df.to_csv(r"test1.csv", header = ['id', 'Roll', 'Name', 'Dept', 'Time', 'Date', 'Status'], index=False) 
 # save to new csv file
 
